@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         element: <PenimbanganKeduaPage />,
       },
       {
-        path: 'file/printsetup',
+        path: 'file/printersetup',
         element: <PrinterSetupPage />,
       },
       {
