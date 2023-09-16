@@ -1,17 +1,8 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
-import {
-  Group,
-  Box,
-  Collapse,
-  ThemeIcon,
-  Text,
-  UnstyledButton,
-  createStyles,
-  rem,
-} from '@mantine/core';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Box, Collapse, Group, ThemeIcon, UnstyledButton, createStyles, rem } from '@mantine/core';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
+import { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   control: {
@@ -23,10 +14,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: theme.fontSizes.sm,
 
     '&:hover': {
-      backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.colors.dark[7]
-          : theme.colors.gray[0],
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     },
   },
@@ -39,19 +27,11 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: rem(31),
     marginLeft: rem(30),
     fontSize: theme.fontSizes.sm,
-    color:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[0]
-        : theme.colors.gray[7],
-    borderLeft: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
+    borderLeft: `${rem(1)} solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]}`,
 
     '&:hover': {
-      backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.colors.dark[7]
-          : theme.colors.gray[0],
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     },
   },
@@ -68,7 +48,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-function LinksGroup({ icon: Icon, label, initiallyOpened, links }) {
+function LinksGroup({ icon: Icon, label, initiallyOpened, links, link }) {
   const { classes, theme, cx } = useStyles();
   const navigate = useNavigate();
   const hasLinks = Array.isArray(links);
@@ -77,9 +57,7 @@ function LinksGroup({ icon: Icon, label, initiallyOpened, links }) {
   const ChevronIcon = theme.dir === 'ltr' ? IconChevronRight : IconChevronLeft;
 
   const items = (hasLinks ? links : []).map((link) => (
-    <Text
-      component="a"
-      // className={classes.link}
+    <Link
       className={cx(classes.link, {
         [classes.linkActive]: location.pathname === `${link.link}`,
       })}
@@ -91,36 +69,54 @@ function LinksGroup({ icon: Icon, label, initiallyOpened, links }) {
       }}
     >
       {link.label}
-    </Text>
+    </Link>
   ));
 
   return (
     <>
-      <UnstyledButton
-        onClick={() => setOpened((o) => !o)}
-        className={classes.control}
-      >
-        <Group position="apart" spacing={0}>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <ThemeIcon variant="light" size={30}>
-              <Icon size="1.1rem" />
-            </ThemeIcon>
-            <Box ml="md">{label}</Box>
-          </Box>
-          {hasLinks && (
-            <ChevronIcon
-              className={classes.chevron}
-              size="1rem"
-              stroke={1.5}
-              style={{
-                transform: opened
-                  ? `rotate(${theme.dir === 'rtl' ? -90 : 90}deg)`
-                  : 'none',
-              }}
-            />
-          )}
-        </Group>
-      </UnstyledButton>
+      {link ? (
+        <Link
+          href={link}
+          className={cx(classes.control, {
+            [classes.linkActive]: location.pathname === `${link}`,
+          })}
+          style={{ textDecoration: 'none' }} 
+          onClick={(event) => {
+            event.preventDefault();
+            navigate(link);
+          }}
+        >
+          <Group position="apart" spacing={0}>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <ThemeIcon variant="light" size={30}>
+                <Icon size="1.1rem" />
+              </ThemeIcon>
+              <Box ml="md">{label}</Box>
+            </Box>
+          </Group>
+        </Link>
+      ) : (
+        <UnstyledButton onClick={() => setOpened((o) => !o)} className={classes.control}>
+          <Group position="apart" spacing={0}>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <ThemeIcon variant="light" size={30}>
+                <Icon size="1.1rem" />
+              </ThemeIcon>
+              <Box ml="md">{label}</Box>
+            </Box>
+            {hasLinks && (
+              <ChevronIcon
+                className={classes.chevron}
+                size="1rem"
+                stroke={1.5}
+                style={{
+                  transform: opened ? `rotate(${theme.dir === 'rtl' ? -90 : 90}deg)` : 'none',
+                }}
+              />
+            )}
+          </Group>
+        </UnstyledButton>
+      )}
       {hasLinks ? <Collapse in={opened}>{items}</Collapse> : null}
     </>
   );
