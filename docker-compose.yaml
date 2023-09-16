@@ -1,0 +1,11 @@
+version: '0.0.1'
+
+services:
+  app:
+    container_name: sadang-light-c
+    image: sadang-light-i
+    restart: always
+    build:
+      context: .
+    ports:
+    - 8085:80
