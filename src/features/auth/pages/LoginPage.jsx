@@ -1,10 +1,9 @@
+import { useBoundStore } from '@/zustand';
 import { Anchor, Box, Button, Container, Paper, PasswordInput, Text, TextInput, Title } from '@mantine/core';
-import { showNotification } from '@mantine/notifications';
-import { useMutation } from '@tanstack/react-query';
+// import { showNotification } from '@mantine/notifications';
+// import { useMutation } from '@tanstack/react-query';
 import React from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { postLogin } from '../../services';
-import { useBoundStore } from '../../zustand';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -15,19 +14,19 @@ function LoginPage() {
     password: '',
   });
 
-  const mutationLogin = useMutation(postLogin, {
-    onSuccess: (data) => {
-      localStorage.setItem('token', data.accessToken);
-      setUserInfo(data.accessToken);
-      navigate('/');
-    },
-    onError: (err) => {
-      showNotification({
-        color: 'red',
-        message: err.message,
-      });
-    },
-  });
+  // const mutationLogin = useMutation(postLogin, {
+  //   onSuccess: (data) => {
+  //     localStorage.setItem('token', data.accessToken);
+  //     setUserInfo(data.accessToken);
+  //     navigate('/');
+  //   },
+  //   onError: (err) => {
+  //     showNotification({
+  //       color: 'red',
+  //       message: err.message,
+  //     });
+  //   },
+  // });
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -35,7 +34,12 @@ function LoginPage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    mutationLogin.mutate(form);
+    if (form.username === 'test' && form.password === 'test') {
+      localStorage.setItem('token', 'test');
+      setUserInfo('test');
+      navigate('/');
+    }
+    // mutationLogin.mutate(form);
   };
 
   if (userInfo) {
@@ -65,13 +69,15 @@ function LoginPage() {
             lineHeight: 1.1,
           })}
         >
-        Weighing System Dashboard
+          Weighing System Dashboard
         </Title>
         <Paper withBorder shadow="md" p={30} m={18} radius="md">
           <form onSubmit={handleLogin}>
             <TextInput name="username" label="Username" placeholder="Your Username" required onChange={handleChange} />
             <PasswordInput name="password" label="Password" placeholder="Your password" required mt="md" onChange={handleChange} />
-            <Button fullWidth mt="xl" type="submit" loading={mutationLogin.isLoading}>
+            <Button fullWidth mt="xl" type="submit" 
+            // loading={mutationLogin.isLoading}
+            >
               Sign in
             </Button>
           </form>
