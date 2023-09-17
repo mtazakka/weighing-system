@@ -3,37 +3,10 @@ import { useState } from 'react';
 
 import { CardTitle, ConfirmationModal, MantineTable, PageContainer } from '@/components';
 
-const columns = [
-  {
-    accessorKey: 'nama',
-    header: 'Nama',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'kdUser',
-    header: 'KD User',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'level',
-    header: 'Level',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
+const columnData = [
+  { accessorKey: 'nama', header: 'Nama' },
+  { accessorKey: 'kdUser', header: 'KD User' },
+  { accessorKey: 'level', header: 'Level' },
 ];
 
 const SettingPasswordPage = () => {
@@ -118,7 +91,7 @@ const SettingPasswordPage = () => {
 
           {/* Start of Material  */}
           <Grid.Col span={12} mt="xl">
-            <MantineTable columns={columns} data={[]} />
+            <MantineTable columnData={columnData} data={[]} />
           </Grid.Col>
           {/* End of Material Table */}
 

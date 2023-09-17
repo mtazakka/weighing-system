@@ -4,39 +4,11 @@ import { useState } from 'react';
 import { ButtonFooter, CardTitle, ConfirmationModal, MantineTable, PageContainer } from '@/components';
 import { formLanggananData } from '@/utils/mockUpData';
 
-const columns = [
-  {
-    accessorKey: 'codeCostumer',
-    header: 'Code Costumer',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'namaCostumer',
-    header: 'Nama Costumer',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'alamat',
-    header: 'Alamat',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
+const columnData = [
+  { accessorKey: 'codeCostumer', header: 'Code Customer' },
+  { accessorKey: 'namaCostumer', header: 'Nama Customer' },
+  { accessorKey: 'alamat', header: 'Alamat' },
 ];
-
 const LanggananPage = () => {
   const initialFormValues = {
     codeLangganan: '',
@@ -103,7 +75,7 @@ const LanggananPage = () => {
 
             {/* Start of Material  */}
             <Grid.Col span={12} mt="xl">
-              <MantineTable data={formLanggananData.data} columns={columns} />
+              <MantineTable data={formLanggananData.data} columnData={columnData} />
             </Grid.Col>
             {/* End of Material Table */}
           </Grid>

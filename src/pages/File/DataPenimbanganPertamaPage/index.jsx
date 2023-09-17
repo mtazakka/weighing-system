@@ -5,99 +5,17 @@ import { ButtonFooter, CardTitle, ConfirmationModal, MantineTable, PageContainer
 import { DatePickerInput } from '@mantine/dates';
 import dayjs from 'dayjs';
 
-const columns = [
-  {
-    accessorKey: 'noId',
-    header: 'NO. ID',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'namaLangganan',
-    header: 'Nama Langganan',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'noDo',
-    header: 'NO. DO',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'noSpb',
-    header: 'NO. SPB',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'namaBarang',
-    header: 'Nama Barang',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'namaSupir',
-    header: 'Nama Supir',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'tanggal',
-    header: 'Tanggal',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'jam',
-    header: 'Jam',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'timbangan',
-    header: 'Timbangan',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
+const columnData = [
+  { accessorKey: 'noId', header: 'NO. ID' },
+  { accessorKey: 'namaLangganan', header: 'Nama Langganan' },
+  { accessorKey: 'noDo', header: 'NO. DO' },
+  { accessorKey: 'noSpb', header: 'NO. SPB' },
+  { accessorKey: 'namaBarang', header: 'Nama Barang' },
+  { accessorKey: 'namaSupir', header: 'Nama Supir' },
+  { accessorKey: 'tanggal', header: 'Tanggal' },
+  { accessorKey: 'jam', header: 'Jam' },
+  { accessorKey: 'timbangan', header: 'Timbangan' },
 ];
-
 const DataPenimbanganPertama = () => {
   const initialFormValues = {
     noId: '',
@@ -211,7 +129,7 @@ const DataPenimbanganPertama = () => {
 
             {/* Start of Material  */}
             <Grid.Col span={12} mt="xl">
-              <MantineTable columns={columns} data={[]} />
+              <MantineTable columnData={columnData} data={[]} />
             </Grid.Col>
           </Grid>
         </Card>

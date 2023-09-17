@@ -5,119 +5,19 @@ import { ButtonFooter, CardTitle, ConfirmationModal, MantineTable, PageContainer
 import { DatePickerInput } from '@mantine/dates';
 import dayjs from 'dayjs';
 
-const columns = [
-  {
-    accessorKey: 'tanggal',
-    header: 'Tanggal',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'noSlip',
-    header: 'NO. SLIP',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'noId',
-    header: 'NO. ID',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'namaLangganan',
-    header: 'Nama Langganan',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'noDo',
-    header: 'NO. DO',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'noSpb',
-    header: 'NO. SPB',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'namaBarang',
-    header: 'Nama Barang',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'bj',
-    header: 'BJ',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'satuan',
-    header: 'Satuan',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'potongan',
-    header: 'Potongan',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'total',
-    header: 'Total',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
+const columnData = [
+  { accessorKey: 'tanggal', header: 'Tanggal' },
+  { accessorKey: 'noSlip', header: 'NO. SLIP' },
+  { accessorKey: 'noId', header: 'NO. ID' },
+  { accessorKey: 'namaLangganan', header: 'Nama Langganan' },
+  { accessorKey: 'noDo', header: 'NO. DO' },
+  { accessorKey: 'noSpb', header: 'NO. SPB' },
+  { accessorKey: 'namaBarang', header: 'Nama Barang' },
+  { accessorKey: 'bj', header: 'BJ' },
+  { accessorKey: 'satuan', header: 'Satuan' },
+  { accessorKey: 'potongan', header: 'Potongan' },
+  { accessorKey: 'total', header: 'Total' },
 ];
-
 const DataPenimbanganKeduaPage = () => {
   const initialFormValues = {
     tanggalAwal: '',
@@ -318,7 +218,7 @@ const DataPenimbanganKeduaPage = () => {
           {/* Start of Material  */}
           <Grid>
             <Grid.Col span={12} mt="xl">
-              <MantineTable columns={columns} data={[]} />
+              <MantineTable columnData={columnData} data={[]} />
             </Grid.Col>
           </Grid>
         </Card>

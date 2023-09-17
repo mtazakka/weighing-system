@@ -4,47 +4,11 @@ import { useState } from 'react';
 import { ButtonFooter, CardTitle, ConfirmationModal, MantineTable, PageContainer } from '@/components';
 import { formMaterialData } from '@/utils/mockUpData';
 
-const columns = [
-  {
-    accessorKey: 'codeMaterial',
-    header: 'Code Material',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'namaMaterial',
-    header: 'Nama Material',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'bj',
-    header: 'BJ',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
-  {
-    accessorKey: 'satuan',
-    header: 'Satuan',
-    mantineTableHeadCellProps: {
-      align: 'center',
-    },
-    mantineTableBodyCellProps: {
-      align: 'center',
-    },
-  },
+const columnData = [
+  { accessorKey: 'codeMaterial', header: 'Code Material' },
+  { accessorKey: 'namaMaterial', header: 'Nama Material' },
+  { accessorKey: 'bj', header: 'BJ' },
+  { accessorKey: 'satuan', header: 'Satuan' },
 ];
 
 const MaterialPage = () => {
@@ -126,7 +90,7 @@ const MaterialPage = () => {
           <Grid>
             {/* Start of Material  */}
             <Grid.Col span={12} mt="xl">
-              <MantineTable data={formMaterialData.data} columns={columns} />
+              <MantineTable data={formMaterialData.data} columns={columnData} />
             </Grid.Col>
             {/* End of Material Table */}
           </Grid>
