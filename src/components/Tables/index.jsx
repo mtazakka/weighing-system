@@ -49,7 +49,7 @@ const MantineTable = ({ data, columnData }) => {
           leftIcon={<IconDownload />}
           variant="filled"
         >
-          Print
+          Export
         </Button>
       </Box>
     ),

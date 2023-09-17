@@ -1,10 +1,9 @@
-import Home from './Home';
+import AboutPage from './Help/AboutPage';
+import { SummaryReportPage } from './Laporan';
 import Login from './Login';
 import TimbanganPage from './Timbangan/TimbanganPage';
-import { SummaryReportPage } from './Laporan';
-import AboutPage from './Help/AboutPage';
 
-export * from './auth'
 export * from './File';
-export * from './Utility'
-export { Home, Login, TimbanganPage, SummaryReportPage, AboutPage };
+export * from './Utility';
+export * from './auth';
+export { AboutPage, Login, SummaryReportPage, TimbanganPage };
