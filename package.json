@@ -13,7 +13,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
+      "npm run lint --fix"
     ]
   },
   "husky": {
@@ -25,16 +25,21 @@
     "@emotion/react": "^11.11.1",
     "@mantine/core": "^6.0.16",
     "@mantine/dates": "^6.0.16",
+    "@mantine/form": "^6.0.20",
     "@mantine/hooks": "^6.0.16",
     "@mantine/modals": "^6.0.16",
     "@mantine/notifications": "^6.0.16",
     "@tabler/icons-react": "^2.23.0",
     "@tanstack/react-query": "^4.29.19",
+    "dayjs": "^1.11.9",
+    "export-to-csv": "^1.0.0",
     "mantine-datatable": "^2.7.2",
+    "mantine-react-table": "^1.2.1",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.1",
+    "tabulator-tables": "^5.5.2",
     "zustand": "^4.3.9"
   },
   "devDependencies": {

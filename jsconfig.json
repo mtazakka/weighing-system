@@ -7,6 +7,7 @@
       "components/*": ["./src/components/*"],
       "config/*": ["./src/config/*"],
       "features/*": ["./src/features/*"],
+      "hooks/*": ["./src/hooks/*"],
       "router/*": ["./src/router/*"],
       "services/*": ["./src/services/*"],
       "utils/*": ["./src/utils/*"],

@@ -16,6 +16,7 @@ export default defineConfig({
       components: `${path.resolve(__dirname, './src/components/')}`,
       config: `${path.resolve(__dirname, './src/config/')}`,
       features: `${path.resolve(__dirname, './src/features/')}`,
+      hooks: `${path.resolve(__dirname, './src/hooks/')}`,
       router: `${path.resolve(__dirname, './src/router/')}`,
       services: `${path.resolve(__dirname, './src/services/')}`,
       utils: `${path.resolve(__dirname, './src/utils/')}`,
