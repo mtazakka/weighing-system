@@ -80,11 +80,11 @@ const LanggananPage = () => {
             {/* End of Material Table */}
           </Grid>
         </Card>
+        <Space h='xl' />
         {/* Start Button Action */}
         <ButtonFooter
           firstTitle="Hapus"
           firstAction={() => setConfirmationModalHapus(true)}
-          secondTitle="Cetak"
           thirdTitle="Simpan"
           thirdAction={() => setConfirmationModalSimpan(true)}
           isDisabled={isDisabled}

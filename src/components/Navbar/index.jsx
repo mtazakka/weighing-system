@@ -1,8 +1,8 @@
 import { Box, Button, Code, Flex, Group, Image, Navbar, ScrollArea, createStyles, rem } from '@mantine/core';
 import { IconBuildingLighthouse, IconLogout } from '@tabler/icons-react';
-import { Outlet, useNavigate } from 'react-router-dom';
-import LinksGroup from './LinksGroup';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { useBoundStore } from '../../zustand';
+import LinksGroup from './LinksGroup';
 
 const mockdata = [
   {
@@ -97,10 +97,12 @@ function NavbarNested() {
     <Flex>
       <Navbar height="100vh" zIndex={10} width={{ sm: 250 }} p="md" className={classes.navbar}>
         <Navbar.Section className={classes.header}>
-          <Group position="apart">
-            <Image src="logo_delameta.png" width={rem(120)} alt="logo delameta" />
-            <Code sx={{ fontWeight: 700 }}>v0.0.1</Code>
-          </Group>
+          <Link to="/">
+            <Group position="apart">
+              <Image src="logo_delameta.png" width={rem(120)} alt="logo delameta" />
+              <Code sx={{ fontWeight: 700 }}>v0.0.1</Code>
+            </Group>
+          </Link>
         </Navbar.Section>
 
         <Navbar.Section grow className={classes.links} component={ScrollArea}>

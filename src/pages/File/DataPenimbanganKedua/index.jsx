@@ -228,7 +228,6 @@ const DataPenimbanganKeduaPage = () => {
         <ButtonFooter
           firstTitle="Hapus"
           firstAction={() => setConfirmationModalHapus(true)}
-          secondTitle="Cetak"
           thirdTitle="Simpan"
           thirdAction={() => setConfirmationModalSimpan(true)}
           isDisabled={isDisabled}

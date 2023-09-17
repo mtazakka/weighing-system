@@ -11,6 +11,7 @@ const columnData = [
   { accessorKey: 'satuan', header: 'Satuan' },
 ];
 
+
 const MaterialPage = () => {
   const initialFormValues = {
     nomorMaterial: '',
@@ -90,7 +91,7 @@ const MaterialPage = () => {
           <Grid>
             {/* Start of Material  */}
             <Grid.Col span={12} mt="xl">
-              <MantineTable data={formMaterialData.data} columns={columnData} />
+              <MantineTable data={formMaterialData.data} columnData={columnData} />
             </Grid.Col>
             {/* End of Material Table */}
           </Grid>
@@ -101,7 +102,6 @@ const MaterialPage = () => {
         <ButtonFooter
           firstTitle="Hapus"
           firstAction={() => setConfirmationModalHapus(true)}
-          secondTitle="Cetak"
           thirdTitle="Simpan"
           thirdAction={() => setConfirmationModalSimpan(true)}
           isDisabled={isDisabled}
