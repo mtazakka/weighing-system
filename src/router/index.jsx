@@ -1,14 +1,8 @@
 /* eslint-disable react/prop-types */
 import { createBrowserRouter } from 'react-router-dom';
-
-import LandingPage from '@/features/auth/pages/LandingPage';
-import LoginPage from '@/features/auth/pages/LoginPage';
-import { LanggananPage, MaterialPage, PenimbanganKeduaPage, PenimbanganPertamaPage, PrinterSetupPage } from '@/features/file/pages';
-import { TimbanganPage } from '@/features/timbangan/pages';
-import { LaporanHarianPage, SummaryReportPage } from '@/features/laporan/pages';
-import { ResetNoSlipPage, SettingPasswordPage, SettingTimbanganPage, UbahPasswordPage } from '@/features/utility/pages';
-import { AboutPage } from '@/features/help/pages';
-
+import { AboutPage, DataPenimbanganPertama, LandingPage, LanggananPage, LaporanHarianPage, LoginPage, MaterialPage, PrinterSetupPage, SummaryReportPage, TimbanganPage } from '@/pages';
+import DataPenimbanganKeduaPage from '@/pages/File/DataPenimbanganKedua';
+import { ResetNoSlipPage, SettingPasswordPage, SettingTimbanganPage, UbahPasswordPage } from '@/pages/Utility';
 import { Navbar } from '../components';
 import PrivateRoute from './Private';
 
@@ -39,11 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'file/penimbanganpertama',
-        element: <PenimbanganPertamaPage />,
+        element: <DataPenimbanganPertama />,
       },
       {
         path: 'file/penimbangankedua',
-        element: <PenimbanganKeduaPage />,
+        element: <DataPenimbanganKeduaPage />,
       },
       {
         path: 'file/printersetup',
